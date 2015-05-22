@@ -1,0 +1,7 @@
+Data Report 
+
+Analysing Intensity:
+Length of binned data: 24255.000000
+Length of events array: 1417.000000
+Percentage of Data affected by RFI: 5.842094
+
