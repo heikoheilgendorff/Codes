@@ -1,0 +1,12 @@
+Hi Heiko/Nkululeko
+
+Here are two images taken the other night with the optical camera- not sure if I sent you the link.
+
+What we would need as a first step is just a routine that calculates the pixel offset from the centre of the image.
+
+After that we can calculate the pixel/angle ratio, and infer the pointing error that remains after applying the pointing model and gross az/el offsets.
+
+Then we simply transform the antenna az/el coordinates, to the apparent az/el coordinates (i.e. remove the pointing model from the antenna positions), and recalculate the pointing model using the new data.
+
+The goal would be a to actually (in real time) apply the observed angle correction so as to keep the star in the centre of the frame.
+

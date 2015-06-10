@@ -1,0 +1,33 @@
+Regarding the weather data here goes!
+
+The machine that actually captures the weather data is guppy. You get onto it by going to cbassuser@cbasscontrol, and then sshing into cbassuser@guppy. The pwd is the standard $klerefontein22
+
+Once there I have written the beginnings of a python script to do the parsing. It is in /home/cbassuser/cronjob/getWeather.py. It will grab data from  /var/www/weather/parameterlist.htm and parse that, grabbing data that is useful.
+
+What we still need is to output a file from the python script.
+
+This file will be read into gcpCbass. The gcpCbass C code that does the reading is given below:
+
+#from ~/cbass/gcpCbass/util/common/WxReaderSA.cc
+#  data_.mtSampleTime_            = str.findNextStringSeparatedByChars("-").str();
+#    data_.airTemperatureC_         = str.findNextInstanceOf("=", "degC").toDouble();
+#    data_.pressure_                = str.findNextInstanceOf(",", "mbar").toDouble();
+#    data_.relativeHumidity_        = str.findNextInstanceOf(",", "%").toDouble();
+#    data_.windSpeed_               = str.findNextInstanceOf(",", "m/s").toDouble();
+#    data_.windDirectionDegrees_    = str.findNextInstanceOf(",", "deg").toDouble();
+#    data_.mtVaporPressure_         = str.findNextInstanceOf(",", "mm").toDouble();
+#    data_.mtDewPoint_              = str.findNextInstanceOf(",", "degC").toDouble();
+
+
+Visually this translates to a file with contents like this.
+Wed Jan 21 14:36:08 UTC 2015    -       WX = 24.6 degC, 866.2 mbar, 44 %, 4.9 m/s, 150 degrees SSE, 20.07 mm, 11.49 degC
+
+I have included an example in the cronjob directory- it is called weatherDataHart.txt.
+
+Once we have a script that successfully generates that file, the only step that remains will need to set up a cron job to copy it over to the correct location on cbasscontrol.
+
+Let me know if that makes sense? I think the first thing is to work out how to make the correct text file. 
+
+Cheers,
+----------------------------------------------------------------------------------------------------------
+

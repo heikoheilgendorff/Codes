@@ -1,0 +1,43 @@
+In star_set.m:
+Hi Heiko,
+
+Ok the first place I would start onyour second point is to try and remove the negatives. Make them all modulo 360. (i.e. -60->300)
+
+For the stars tracking themselves have you looked at the catalog used by star_set.m? Maybe explicitly print out what star_set.m thinks it has after reading stars.cat? If you look at line 44 in star_set.m, it might be worth explicitly printing things out, or see what happens when that matlab line is run on a file, only include the stars that have problems in that file?
+
+Cheers,
+----------------------------------------------------------------------------------------------------------
+
+Looking at star_set.m:
+
+* It takes in the following:
+
+lst - this effectively gives the longitude
+ellim - the lowest elevation that can be accepted
+maglim - the dimmest star that can be accepted
+minuteDiff - how long you expect to be on a particular star
+
+* Then it reads in the star catalogue:
+
+This is a list of stars and positions and magnitudes for a particular time
+Positions given in RA and Dec, which are independent of observer position
+
+* Then it converts RA and Dec from hh:mm:ss to fractional degrees
+
+* Then it converts RA to hour angle, using the lst
+
+This must mean that the no matter the observer location, at a specific lst, the star will have
+a specific hour angle. This makes sense if you consider the sun.
+
+* Calculate az and el for a specific lat
+
+Need to check if lat being negative causes a problem
+Look at a function called hdl2ae 
+
+* remove stars below elevation and magnitude limits
+
+* remove stars close to zenith
+
+* sort in order of decreasing az
+
+

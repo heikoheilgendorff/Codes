@@ -1,0 +1,10 @@
+outsideTemp=24.2<br>
+stationPressure=861.3<br>
+outsideHumidity=51<br>
+windSpeed=30.6<br>
+windDirection=NNW<br>
+windDirectionDegrees=327<br>
+dailyRain=0.00<br>
+outsideDewPt=13.4<br>
+stationDate=04/03/15<br>
+stationTime=15:02:10<br>

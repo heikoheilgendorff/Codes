@@ -1,0 +1,14 @@
+First it reads in the input file from the weatherstation.
+
+Then it goes through this file, line by line and pulls out the relevant information
+and appending that info into a variable called weatherData.
+
+Then it goes through weatherData and pulls out the actual values and puts them in variable x.
+For example: weatherData has 'outsideTemp=24.2<br>', x has '24.2'
+
+It then gets the date and time of the measurements from x.
+
+Finally, it outputs all the information from x into the format required for the next part of the chain and saves it in a file called weatherDataKlerefontein.txt
+
+All that is required for this to work on Guppy is to copy it to the approriate file and 
+change the paths.
